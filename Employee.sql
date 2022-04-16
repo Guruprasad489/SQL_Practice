@@ -41,6 +41,8 @@ select * from employee_payroll order by StartDate;
 select sum(Salary) as sumsalary,Gender from employee_payroll group by Gender order by Gender;
 select sum(Salary) as sumsalary,Gender from employee_payroll group by Gender Having Gender='M';
 
+select * from employee_payroll order by startdate offset 2 rows fetch first 2 rows only;
+
 --add employee phone, department(not null), Address (using default values)
 select * from employee_payroll;
 alter table employee_payroll add Phone bigint;
