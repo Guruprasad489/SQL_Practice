@@ -65,3 +65,14 @@ alter table employee_payroll add
 								 Net_Pay float not null default 0.00;
 update employee_payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
 select * from employee_payroll;
+
+insert into dbo.Payroll_Details(EmpId, Salary) values
+(1, 10000),
+(2, 20000),
+(3, 30000);
+
+----SubQuery----
+select * from employee_payroll a where
+exists(
+select Id from Payroll_Details b where a.Id=b.EmpId
+)
